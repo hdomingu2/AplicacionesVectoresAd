@@ -211,7 +211,9 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
 
     private void cmdLlenadoManuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoManuActionPerformed
         double n;
-        int sw,res=0;
+        int sw,res;
+        boolean aux =true;
+        
         for (int i = 0; i < v.length; i++) {
             do {
                 sw=1;
@@ -222,10 +224,11 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"digite el numero valido","Error",JOptionPane.ERROR_MESSAGE);
                sw=0; 
         }catch (NullPointerException e){
-                JOptionPane.showConfirmDialog(this,"¿Seguro que desea salir?", "salir",JOptionPane.YES_NO_OPTION);
+              res=JOptionPane.showConfirmDialog(this,"¿Seguro que desea salir?", "salir",JOptionPane.YES_NO_OPTION);
                 if(res== 0){
                     sw=1;
                     i=v.length;
+                    aux=false;
                 }else{
                     sw=0;
                 }
@@ -236,7 +239,7 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
         cmdLlenadoManu.setEnabled(false);
         cmdLlenadoAuto.setEnabled(false);
         cmdBorrar.setEnabled(true);
-        cmdMostrar.setEnabled(true);
+        cmdMostrar.setEnabled(aux);
      
     }//GEN-LAST:event_cmdLlenadoManuActionPerformed
 
