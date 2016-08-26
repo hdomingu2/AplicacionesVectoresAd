@@ -186,7 +186,7 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
             
             
         cmdCrear.setEnabled(false);
-        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoManu.setEnabled(true);
         cmdLlenadoAuto.setEnabled(true);
         cmdBorrar.setEnabled(true);
         cmdMostrar.setEnabled(false);
@@ -211,7 +211,7 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
 
     private void cmdLlenadoManuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoManuActionPerformed
         double n;
-        int sw;
+        int sw,res=0;
         for (int i = 0; i < v.length; i++) {
             do {
                 sw=1;
@@ -223,6 +223,12 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
                sw=0; 
         }catch (NullPointerException e){
                 JOptionPane.showConfirmDialog(this,"¿Seguro que desea salir?", "salir",JOptionPane.YES_NO_OPTION);
+                if(res== 0){
+                    sw=1;
+                    i=v.length;
+                }else{
+                    sw=0;
+                }
                 }
     }while(sw==0);
 }           
