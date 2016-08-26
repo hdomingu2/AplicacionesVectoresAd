@@ -211,17 +211,28 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
 
     private void cmdLlenadoManuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLlenadoManuActionPerformed
         double n;
+        int sw;
         for (int i = 0; i < v.length; i++) {
+            do {
+                sw=1;
+                try{
             n = Double.parseDouble(JOptionPane.showInputDialog ( this,"digite el elemento en la posicion "+i));
-            
-        }
-        
+            v[i]=n;
+        }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(this,"digite el numero valido","Error",JOptionPane.ERROR_MESSAGE);
+               sw=0; 
+        }catch (NullPointerException e){
+                JOptionPane.showMessageDialog(this, "no puede salir","Error",JOptionPane.ERROR_MESSAGE);
+                sw=0;
+                }
+    }while(sw==0);
+}           
         cmdCrear.setEnabled(false);
         cmdLlenadoManu.setEnabled(false);
         cmdLlenadoAuto.setEnabled(false);
         cmdBorrar.setEnabled(true);
         cmdMostrar.setEnabled(true);
-        
+     
     }//GEN-LAST:event_cmdLlenadoManuActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
