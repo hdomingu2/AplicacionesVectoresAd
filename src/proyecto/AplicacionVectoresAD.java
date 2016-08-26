@@ -222,8 +222,7 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this,"digite el numero valido","Error",JOptionPane.ERROR_MESSAGE);
                sw=0; 
         }catch (NullPointerException e){
-                JOptionPane.showMessageDialog(this, "no puede salir","Error",JOptionPane.ERROR_MESSAGE);
-                sw=0;
+                JOptionPane.showConfirmDialog(this,"¿Seguro que desea salir?", "salir",JOptionPane.YES_NO_OPTION);
                 }
     }while(sw==0);
 }           
