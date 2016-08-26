@@ -21,6 +21,11 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
     
     public AplicacionVectoresAD() {
         initComponents();
+        cmdCrear.setEnabled(true);
+        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoAuto.setEnabled(false);
+        cmdBorrar.setEnabled(false);
+        cmdMostrar.setEnabled(false);
     }
 
     /**
@@ -136,8 +141,8 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +151,8 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(530, 454));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
@@ -154,6 +160,14 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
         txtResultado.setText("");
         v = null;
         txtLongitud.requestFocusInWindow();
+        
+        cmdCrear.setEnabled(true);
+        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoAuto.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
+        txtLongitud.setEditable(false);
+        
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void cmdCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCrearActionPerformed
@@ -169,6 +183,13 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
             longitud=Integer.parseInt(txtLongitud.getText().trim());
             v = new double [longitud];
             JOptionPane.showMessageDialog(this,"Vector Creado Exitosamente");
+            
+            
+        cmdCrear.setEnabled(false);
+        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoAuto.setEnabled(true);
+        cmdBorrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
             
         }
         
@@ -195,12 +216,24 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
             
         }
         
+        cmdCrear.setEnabled(false);
+        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoAuto.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        cmdMostrar.setEnabled(true);
+        
     }//GEN-LAST:event_cmdLlenadoManuActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
         for (int i = 0; i < v.length; i++) {
             txtResultado.append(v[i]+"\n");
         }
+        
+        cmdCrear.setEnabled(false);
+        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoAuto.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
         
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
@@ -211,6 +244,11 @@ public class AplicacionVectoresAD extends javax.swing.JFrame {
             v [i]=n;
         }
         JOptionPane.showMessageDialog(this,"Llenado hehco correctamente");
+        cmdCrear.setEnabled(false);
+        cmdLlenadoManu.setEnabled(false);
+        cmdLlenadoAuto.setEnabled(false);
+        cmdBorrar.setEnabled(true);
+        cmdMostrar.setEnabled(true);
     }//GEN-LAST:event_cmdLlenadoAutoActionPerformed
 
     /**
